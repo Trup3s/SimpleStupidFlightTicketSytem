@@ -22,6 +22,14 @@ elif len(sys.argv) == 3:
         print(repr(fd.get_airports(sys.argv[2])))
     elif sys.argv[1] == "--fleet":
         print(repr(fd.get_fleet(sys.argv[2])))
+    elif sys.argv[1] == "--flights":
+        print(repr(fd.get_flights(sys.argv[2])))
+    elif sys.argv[1] == "--history-by-flight":
+        print(repr(fd.get_history_by_flight_number(sys.argv[2])))
+    elif sys.argv[1] == "--history-by-tail":
+        print(repr(fd.get_history_by_tail_number(sys.argv[2])))
+    elif sys.argv[1] == "--info":
+        print(repr(fd.get_info_by_tail_number(sys.argv[3])))
     else:
         print("Unknown Argument")
         sys.exit(22)
