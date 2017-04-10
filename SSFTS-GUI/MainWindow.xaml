@@ -6,7 +6,28 @@
         xmlns:local="clr-namespace:SSFTS_GUI"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+    <Grid x:Name="Grid">
+        <Label Content="From" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="To" HorizontalAlignment="Left" Margin="309,10,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cb_from_country" HorizontalAlignment="Left" Margin="62,43,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0"/>
+        <ComboBox x:Name="cb_from_airport" HorizontalAlignment="Left" Margin="62,89,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="cb_to_country" HorizontalAlignment="Left" Margin="345,43,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="cb_to_airport" HorizontalAlignment="Left" Margin="345,89,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Country" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top"/>
+        <Label Content="Airport" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,85,0,0"/>
+        <Label Content="Country" HorizontalAlignment="Left" Margin="293,43,0,0" VerticalAlignment="Top"/>
+        <Label Content="Airport" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="293,85,0,0"/>
+        <Image x:Name="img_from_country" HorizontalAlignment="Left" Height="20" Margin="187,44,0,0" VerticalAlignment="Top" Width="33">
+            <Image.Effect>
+                <DropShadowEffect ShadowDepth="3"/>
+            </Image.Effect>
+        </Image>
+        <Image x:Name="img_to_country" HorizontalAlignment="Left" Height="20" Margin="470,44,0,0" VerticalAlignment="Top" Width="33">
+            <Image.Effect>
+                <DropShadowEffect ShadowDepth="3"/>
+            </Image.Effect>
+        </Image>
+        <Label Content="Airline" HorizontalAlignment="Left" Margin="218,141,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cb_airline" HorizontalAlignment="Left" Margin="178,172,0,0" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>

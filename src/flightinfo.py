@@ -1,36 +1,41 @@
 #!/usr/bin/env python3
 """A CLI Wrapper to pyflightdata."""
-import pyflightdata as fd
 import sys
+import pyflightdata as fd
+import bugs
 
-if len(sys.argv) <= 1:
-    print("Not enough Arguments")
+if len(sys.argv) < 1:
+    sys.stderr.write("Not enough Arguments \n")
+    sys.stderr.write(repr(sys.argv))
     sys.exit(22)
 
 elif len(sys.argv) == 2:
     if sys.argv[1] == "--countries":
-        print(repr(fd.get_countries()))
-    if sys.argv[1] == "--airlines":
-        print(repr(fd.get_airlines()))
+        sys.stdout.write(repr(fd.get_countries()))
+    elif sys.argv[1] == "--airlines":
+        sys.stdout.write(repr(fd.get_airlines()))
     else:
-        print("Unknown Argument")
+        sys.stderr.write("Unknown Argument (args:1)\n")
+        sys.stderr.write(repr(sys.argv))
         sys.exit(22)
     sys.exit(0)
 
 elif len(sys.argv) == 3:
+    sys.argv[2] = bugs.tointernal(sys.argv[2])
     if sys.argv[1] == "--airports":
-        print(repr(fd.get_airports(sys.argv[2])))
+        sys.stdout.write(bugs.airports(repr(fd.get_airports(sys.argv[2]))))
     elif sys.argv[1] == "--fleet":
-        print(repr(fd.get_fleet(sys.argv[2])))
+        sys.stdout.write(repr(fd.get_fleet(sys.argv[2])))
     elif sys.argv[1] == "--flights":
-        print(repr(fd.get_flights(sys.argv[2])))
+        sys.stdout.write(repr(fd.get_flights(sys.argv[2])))
     elif sys.argv[1] == "--history-by-flight":
-        print(repr(fd.get_history_by_flight_number(sys.argv[2])))
+        sys.stdout.write(repr(fd.get_history_by_flight_number(sys.argv[2])))
     elif sys.argv[1] == "--history-by-tail":
-        print(repr(fd.get_history_by_tail_number(sys.argv[2])))
+        sys.stdout.write(repr(fd.get_history_by_tail_number(sys.argv[2])))
     elif sys.argv[1] == "--info":
-        print(repr(fd.get_info_by_tail_number(sys.argv[3])))
+        sys.stdout.write(repr(fd.get_info_by_tail_number(sys.argv[2])))
     else:
-        print("Unknown Argument")
+        sys.stderr.write("Unknown Argument (args:2)\n")
+        sys.stderr.write(repr(sys.argv))
         sys.exit(22)
     sys.exit(0)
