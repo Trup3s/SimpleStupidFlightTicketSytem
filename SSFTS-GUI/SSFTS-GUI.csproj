@@ -80,6 +80,7 @@
     <Compile Include="FlightClasses\Country.cs" />
     <Compile Include="FlightClasses\Flight.cs" />
     <Compile Include="PythonHandler.cs" />
+    <Compile Include="Ticket.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

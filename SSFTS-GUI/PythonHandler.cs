@@ -17,19 +17,14 @@ namespace SSFTS_GUI {
         }
 
 
-        private static String PythonExecutable = "python.exe";
-
         public static String GetPythonOutput(String script, List<String> args) {
             args.Insert(0, script);
             if (!File.Exists(script)) {
                 throw new FileNotFoundException("Python Script does not exist", script);
             }
-            /*if (!File.Exists(PythonExecutable)) {
-                throw new FileNotFoundException("PythonExecutable does not exist", PythonExecutable);
-            }*/
             Process pythonProcess = new Process() {
                 StartInfo = new ProcessStartInfo() {
-                    FileName = PythonExecutable,
+                    FileName = Properties.Settings.Default.PythonExecutable,
                     Arguments = String.Join(" ", args),
                     CreateNoWindow = true,
                     RedirectStandardOutput = true,
@@ -38,7 +33,7 @@ namespace SSFTS_GUI {
                 }
             };
 
-            Debug.Print("Calling \"{0} {1}\"", PythonExecutable, String.Join(" ", args));
+            Debug.Print("Calling \"{0} {1}\"", Properties.Settings.Default.PythonExecutable, String.Join(" ", args));
 
             pythonProcess.Start();
 
