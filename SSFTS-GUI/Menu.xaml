@@ -1,0 +1,15 @@
+﻿<Window x:Class="SSFTS_GUI.Menu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SSFTS_GUI"
+        mc:Ignorable="d"
+        Title="SimpleStupidFlightTicketSystem" Height="350" Width="525">
+    <Grid>
+        <Label x:Name="titel" Content="SimpleStupidFlightTicketSystem" Margin="92,30,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="22" FontFamily="Ubuntu Mono derivative Powerline" HorizontalContentAlignment="Center"/>
+        <Button x:Name="btn_selectflight" Command="OpenWindow" CommandParameter="MainWindow" Content="Book a Flight" HorizontalAlignment="Left" Height="30" Margin="184,100,0,0" VerticalAlignment="Top" Width="160" FontSize="16" Click="btn_selectflight_Click"/>
+        <Button x:Name="btn_viewflights" Content="View your Flights" HorizontalAlignment="Left" Margin="184,160,0,0" VerticalAlignment="Top" Width="160" Height="30" FontSize="16" FontFamily="Sergio UI" Click="btn_viewflights_Click"/>
+
+    </Grid>
+</Window>
