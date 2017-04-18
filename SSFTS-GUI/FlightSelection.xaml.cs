@@ -23,6 +23,9 @@ namespace SSFTS_GUI {
     public partial class MainWindow : Window {
         ObservableCollection<Country> countries;
         ObservableCollection<Airline> airlines;
+        Menu menu;
+        TicketPreview ticketPreview;
+
         public MainWindow() {
             new Thread(this.LoadFleets).Start();
             InitializeComponent();
@@ -30,6 +33,8 @@ namespace SSFTS_GUI {
             LoadAirlines();
             LoadAirports(this.countries[0]);
             InitComboBoxes();
+            this.menu = new Menu();
+            this.ticketPreview = new TicketPreview();
         }
 
         private void LoadAirlines() => this.airlines = new ObservableCollection<Airline>(PythonHandler.GetAirlines());
@@ -98,6 +103,18 @@ namespace SSFTS_GUI {
             LoadAirports(country);           
             airportbox.ItemsSource = new ObservableCollection<Airport>(country.Airports);
             airportbox.SelectedIndex = 0;
+        }
+
+        private void btn_ticketpreview_Click(object sender, RoutedEventArgs e)
+        {
+            this.ticketPreview.Show();
+            this.Close();
+        }
+
+        private void btn_back_Click(object sender, RoutedEventArgs e)
+        {
+            this.menu.Show();
+            this.Close();
         }
     }
 }

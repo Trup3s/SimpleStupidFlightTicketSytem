@@ -15,30 +15,21 @@ using System.Windows.Shapes;
 namespace SSFTS_GUI
 {
     /// <summary>
-    /// Interaction logic for Menu.xaml
+    /// Interaction logic for TicketPreview.xaml
     /// </summary>
-    public partial class Menu : Window
+    public partial class TicketPreview : Window
     {
         MainWindow mainWindow;
-        Menu menu;
 
-        public Menu()
+        public TicketPreview()
         {
             InitializeComponent();
             this.mainWindow = new MainWindow();
-            this.menu = new Menu();
         }
 
-        private void btn_selectflight_Click(object sender, RoutedEventArgs e)
+        private void btn_back_Click(object sender, RoutedEventArgs e)
         {
             this.mainWindow.Show();
-            this.Close();
-        }
-
-        private void btn_viewflights_Click(object sender, RoutedEventArgs e)
-        {
-
-            this.menu.Show();
             this.Close();
         }
     }
