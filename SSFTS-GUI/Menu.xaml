@@ -8,7 +8,7 @@
         Title="SimpleStupidFlightTicketSystem" Height="350" Width="525">
     <Grid>
         <Label x:Name="titel" Content="SimpleStupidFlightTicketSystem" Margin="92,30,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="22" FontFamily="Ubuntu Mono derivative Powerline" HorizontalContentAlignment="Center"/>
-        <Button x:Name="btn_selectflight" Command="OpenWindow" CommandParameter="MainWindow" Content="Book a Flight" HorizontalAlignment="Left" Height="30" Margin="184,100,0,0" VerticalAlignment="Top" Width="160" FontSize="16" Click="btn_selectflight_Click"/>
+        <Button x:Name="btn_selectflight" CommandParameter="MainWindow" Content="Book a Flight" HorizontalAlignment="Left" Height="30" Margin="184,100,0,0" VerticalAlignment="Top" Width="160" FontSize="16" Click="btn_selectflight_Click"/>
         <Button x:Name="btn_viewflights" Content="View your Flights" HorizontalAlignment="Left" Margin="184,160,0,0" VerticalAlignment="Top" Width="160" Height="30" FontSize="16" FontFamily="Sergio UI" Click="btn_viewflights_Click"/>
 
     </Grid>

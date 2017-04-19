@@ -19,16 +19,9 @@ namespace SSFTS_GUI
     /// </summary>
     public partial class TicketOverview : Window
     {
-        Ticket ticket;
         public TicketOverview()
         {
             InitializeComponent();
-        }
-
-        private void fillList() {
-            for (int i = ticket.getTicketCount(); i >=0; i--) {
-                ticketlist.Items.Add(i);
-            }
         }
     }
 }

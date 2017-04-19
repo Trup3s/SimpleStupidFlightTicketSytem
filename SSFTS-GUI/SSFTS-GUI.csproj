@@ -74,7 +74,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="filehandler.cs" />
+    <Compile Include="FileHandler.cs" />
     <Compile Include="FlightClasses\Airline.cs" />
     <Compile Include="FlightClasses\Airplane.cs" />
     <Compile Include="FlightClasses\Airport.cs" />
