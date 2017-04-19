@@ -20,13 +20,13 @@ namespace SSFTS_GUI
     public partial class Menu : Window
     {
         MainWindow mainWindow;
-        Menu menu;
+        TicketOverview ticketOverview;
 
         public Menu()
         {
             InitializeComponent();
             this.mainWindow = new MainWindow();
-            this.menu = new Menu();
+            this.ticketOverview = new TicketOverview();
         }
 
         private void btn_selectflight_Click(object sender, RoutedEventArgs e)
@@ -38,7 +38,7 @@ namespace SSFTS_GUI
         private void btn_viewflights_Click(object sender, RoutedEventArgs e)
         {
 
-            this.menu.Show();
+            this.ticketOverview.Show();
             this.Close();
         }
     }

@@ -9,9 +9,11 @@ using System.IO;
  * 
  * --Airport(source)--
  * sName:
+ * sIATA:
  * 
  * --Airport(destination)--
  * dName:
+ * dIATA:
  * 
  * --Airplane--
  * Age:
@@ -29,10 +31,12 @@ namespace SSFTS_GUI
     class filehandler {
         private string path = @"\Savedflights.txt";
         private List<Flight> ticketlist;
-        private string msg, bfr, age, type, code, serialnumber, typecode, flightnumber, aircrafttype;
+        private string msg, bfr, age, type, code, serialnumber, typecode, flightnumber, aircrafttype, sname, siata, dname, diata;
         private Flight flight;
         private Airport sAirport, dAirport;
         private Airplane airplane;
+
+        public List<Flight> TicketList { get => this.ticketlist; }
 
         public void save() {            
             if (!File.Exists(path)) {
@@ -47,17 +51,18 @@ namespace SSFTS_GUI
                         flightnumber = flight.FlightNumber;
                         aircrafttype = flight.AircraftType;
 
-                        write(fs, "\nsName: " + sAirport.Name + "\ndName: " + dAirport.Name + "\nAge: " + airplane.Age + "\nType: " + airplane.Type + "\nCode: " + airplane.Code + "\nSerialnumber: "
-                            + airplane.Serialnumber + "\nTypecode: " + airplane.TypeCode + "\nFlightnumber: " + flight.FlightNumber + "\nAircrafttype: " + flight.AircraftType + "\n---");
+                        write(fs, "\nsName: " + sAirport.Name + "\nsIATA: " + sAirport.IATA + "\ndName: " + dAirport.Name + "\ndIATA: " + dAirport.IATA + "\nAge: " + airplane.Age + 
+                            "\nType: " + airplane.Type + "\nCode: " + airplane.Code + "\nSerialnumber: " + airplane.Serialnumber + "\nTypecode: " + airplane.TypeCode + 
+                            "\nFlightnumber: " + flight.FlightNumber + "\nAircrafttype: " + flight.AircraftType + "\n---");
                     }
                 }
             }
         }
 
-        public void read() {
+        public bool load() {
             if (!File.Exists(path)) {
                 //File does not exists or cant be opened
-                return;
+                return false;
             }
             else {
                 using (FileStream fs = File.OpenRead(path)) {
@@ -79,14 +84,28 @@ namespace SSFTS_GUI
                                 for (; msg[x] != '\n'; x++) {
                                     bfr += msg[x];
                                 }
-                                sAirport = new Airport(null, 0, 0, bfr);
+                                sname = bfr;
+                                break;
+                            case "siata:":
+                                bfr = "";
+                                for (; msg[x] != '\n'; x++) {
+                                    bfr += msg[x];
+                                }
+                                siata = bfr;
                                 break;
                             case "dName:":
                                 bfr = "";
                                 for (; msg[x] != '\n'; x++) {
                                     bfr += msg[x];
                                 }
-                                dAirport = new Airport(null, 0, 0, bfr);
+                                dname = bfr;
+                                break;
+                            case "diata:":
+                                bfr = "";
+                                for (; msg[x] != '\n'; x++) {
+                                    bfr += msg[x];
+                                }
+                                diata = bfr;
                                 break;
                             case "Age:":
                                 bfr = "";
@@ -138,6 +157,8 @@ namespace SSFTS_GUI
                                 aircrafttype = bfr;
                                 break;
                             case "---":
+                                sAirport = new Airport(siata, 0, 0, sname);
+                                dAirport = new Airport(diata, 0, 0, dname);
                                 airplane = new Airplane(age, type, code, null, null, serialnumber, typecode);
                                 flight = new Flight(airplane, aircrafttype, flightnumber, sAirport, dAirport);
                                 ticketlist.Add(flight);
@@ -146,6 +167,7 @@ namespace SSFTS_GUI
                     }
                 }
             }
+            return true;
         }
 
         public void write(FileStream fs, string text) {
