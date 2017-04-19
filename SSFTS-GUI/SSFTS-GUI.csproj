@@ -74,6 +74,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="filehandler.cs" />
     <Compile Include="FlightClasses\Airline.cs" />
     <Compile Include="FlightClasses\Airplane.cs" />
     <Compile Include="FlightClasses\Airport.cs" />
@@ -83,6 +84,12 @@
       <DependentUpon>Menu.xaml</DependentUpon>
     </Compile>
     <Compile Include="PythonHandler.cs" />
+    <Compile Include="TicketOverview.xaml.cs">
+      <DependentUpon>TicketOverview.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TicketPreview.xaml.cs">
+      <DependentUpon>TicketPreview.xaml</DependentUpon>
+    </Compile>
     <Page Include="FlightSelection.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -96,6 +103,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Menu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TicketOverview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TicketPreview.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

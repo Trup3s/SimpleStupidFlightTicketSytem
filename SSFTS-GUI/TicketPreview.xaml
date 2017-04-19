@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SSFTS_GUI"
         mc:Ignorable="d"
-        Title="TicketPreview" Height="350" Width="525">
+        Title="Ticket Preview" Height="350" Width="525">
     <Grid>
         <Button x:Name="btn_print" Content="Print Ticket" HorizontalAlignment="Left" Margin="432,289,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="btn_back" Content="Back" HorizontalAlignment="Left" Margin="10,290,0,0" VerticalAlignment="Top" Width="35"/>
+        <Button x:Name="btn_back" Content="Back" HorizontalAlignment="Left" Margin="10,290,0,0" VerticalAlignment="Top" Width="35" Click="btn_back_Click"/>
 
     </Grid>
 </Window>
