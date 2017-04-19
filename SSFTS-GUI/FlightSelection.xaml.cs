@@ -85,12 +85,9 @@ namespace SSFTS_GUI {
                 airportbox.DisplayMemberPath = "Name";
                 airportbox.SelectedIndex = 0;
             }
-
-
         }
 
         private void Cb_airline_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-
         }
 
         private void Countrybox_SelectionChanged(object sender, SelectionChangedEventArgs e) {
